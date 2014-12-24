@@ -79,20 +79,10 @@ class ControllerPaymentLiqpay extends Controller
 
         $signature = base64_encode(sha1($private_key.$data.$private_key, 1));
 
-        $this->data['action'] = $this->config->get('liqpay_action');
-        $this->data['public_key'] = $public_key;
-        $this->data['amount'] = $amount;
-        $this->data['currency'] = $currency;
-        $this->data['description'] = $description;
-        $this->data['order_id'] = $order_id;
-        $this->data['result_url'] = $result_url;
-        $this->data['server_url'] = $server_url;
-        $this->data['type'] = $type;
+        $this->data['action']    = $this->config->get('liqpay_action');
         $this->data['signature'] = $signature;
-        $this->data['language'] = $language;
-        $this->data['button_confirm'] = $this->language->get('button_confirm');
-        $this->data['url_confirm'] = $this->url->link('payment/liqpay/confirm');
-
+        $this->data['data']      = $data;
+        
         $this->template = $this->config->get('config_template').'/template/payment/liqpay.tpl';
 
         if (!file_exists(DIR_TEMPLATE.$this->template)) {
@@ -128,8 +118,8 @@ class ControllerPaymentLiqpay extends Controller
 
         if ($success) {
             return array(
-                $_POST['signature'],
-                $_POST['data']
+                $_POST['data'],
+                $_POST['signature']
             );
         }
         return array();

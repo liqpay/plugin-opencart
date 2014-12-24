@@ -24,8 +24,8 @@
 ?>
 
 <form method="POST" action="<?=$action?>" id="liqpay" accept-charset="utf-8">
-    <input type="hidden" name="signature" value="<?=$signature?>" />
     <input type="hidden" name="language"  value="<?=$data?>" />
+    <input type="hidden" name="signature" value="<?=$signature?>" />
     <div class="buttons">
         <div class="right">
             <input type="submit" value="<?php echo $button_confirm; ?>" id="button-confirm" class="button" />
