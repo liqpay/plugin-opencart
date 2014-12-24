@@ -10,7 +10,7 @@
  *
  * @category        Liqpay
  * @package         Payment
- * @version         0.0.1
+ * @version         3.0
  * @author          Liqpay
  * @copyright       Copyright (c) 2014 Liqpay
  * @license         http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
@@ -139,7 +139,7 @@ class ControllerPaymentLiqPay extends Controller
 		} else {
 			$this->data['liqpay_action'] = $this->config->get('liqpay_action');
 			if (empty($this->data['liqpay_action'])) {
-				$this->data['liqpay_action'] = 'https://www.liqpay.com/api/pay';
+				$this->data['liqpay_action'] = 'https://www.liqpay.com/api/checkout';
 			}
 		}
 

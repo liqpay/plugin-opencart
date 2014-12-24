@@ -10,7 +10,7 @@
  *
  * @category        Liqpay
  * @package         Payment
- * @version         0.0.1
+ * @version         3.0
  * @author          Liqpay
  * @copyright       Copyright (c) 2014 Liqpay
  * @license         http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
@@ -24,16 +24,8 @@
 ?>
 
 <form method="POST" action="<?=$action?>" id="liqpay" accept-charset="utf-8">
-    <input type="hidden" name="public_key" value="<?=$public_key?>" />
-    <input type="hidden" name="amount" value="<?=$amount?>" />
-    <input type="hidden" name="currency" value="<?=$currency?>" />
-    <input type="hidden" name="description" value="<?=$description?>" />
-    <input type="hidden" name="order_id" value="<?=$order_id?>" />
-    <input type="hidden" name="result_url" value="<?=$result_url?>" />
-    <input type="hidden" name="server_url" value="<?=$server_url?>" />
-    <input type="hidden" name="type" value="<?=$type?>" />
     <input type="hidden" name="signature" value="<?=$signature?>" />
-    <input type="hidden" name="language" value="<?=$language?>" />
+    <input type="hidden" name="language"  value="<?=$data?>" />
     <div class="buttons">
         <div class="right">
             <input type="submit" value="<?php echo $button_confirm; ?>" id="button-confirm" class="button" />

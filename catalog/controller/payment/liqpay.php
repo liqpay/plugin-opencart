@@ -10,7 +10,7 @@
  *
  * @category        Liqpay
  * @package         Payment
- * @version         0.0.1
+ * @version         3.0
  * @author          Liqpay
  * @copyright       Copyright (c) 2014 Liqpay
  * @license         http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
@@ -60,21 +60,24 @@ class ControllerPaymentLiqpay extends Controller
             $order_info['currency_value'],
             false
         );
-
-        $signature = base64_encode(sha1(join('',compact(
-            'private_key',
-            'amount',
-            'currency',
-            'public_key',
-            'order_id',
-            'type',
-            'description',
-            'result_url',
-            'server_url'
-        )),1));
-
+        $version  = '3';
         $language = $this->language->get('code');
         $language = $language == 'ru' ? 'ru' : 'en';
+
+        $data = base64_encode(
+                    json_encode(
+                            array('version'     => $version,
+                                  'public_key'  => $public_key,
+                                  'amount'      => $amount,
+                                  'currency'    => $currency,
+                                  'description' => $description,
+                                  'order_id'    => $order_id,
+                                  'type'        => $type,
+                                  'language'    => $language)
+                                )
+                            );
+
+        $signature = base64_encode(sha1($private_key.$data.$private_key, 1));
 
         $this->data['action'] = $this->config->get('liqpay_action');
         $this->data['public_key'] = $public_key;
@@ -120,28 +123,13 @@ class ControllerPaymentLiqpay extends Controller
     private function getPosts()
     {
         $success =
-            isset($_POST['amount']) &&
-            isset($_POST['currency']) &&
-            isset($_POST['public_key']) &&
-            isset($_POST['description']) &&
-            isset($_POST['order_id']) &&
-            isset($_POST['type']) &&
-            isset($_POST['status']) &&
-            isset($_POST['transaction_id']) &&
-            isset($_POST['sender_phone']);
+            isset($_POST['data']) &&
+            isset($_POST['signature']);
 
         if ($success) {
             return array(
-                $_POST['amount'],
-                $_POST['currency'],
-                $_POST['public_key'],
-                $_POST['description'],
-                $_POST['order_id'],
-                $_POST['type'],
-                $_POST['status'],
-                $_POST['transaction_id'],
-                $_POST['sender_phone'],
                 $_POST['signature'],
+                $_POST['data']
             );
         }
         return array();
@@ -169,18 +157,16 @@ class ControllerPaymentLiqpay extends Controller
     {
         if (!$posts = $this->getPosts()) { die(); }
 
-        list(
-            $amount,
-            $currency,
-            $public_key,
-            $description,
-            $order_id,
-            $type,
-            $status,
-            $transaction_id,
-            $sender_phone,
-            $insig
-        ) = $posts;
+        list($data, $signature) = $posts;
+        $parsed_data = json_decode(base64_decode($data));
+
+        $received_public_key = $parsed_data['public_key'];
+        $order_id            = $parsed_data['order_id'];
+        $status              = $parsed_data['status'];
+        $sender_phone        = $parsed_data['sender_phone'];
+        $amount              = $parsed_data['amount'];
+        $currency            = $parsed_data['currency'];
+        $transaction_id      = $parsed_data['transaction_id'];
 
         $real_order_id = $this->getRealOrderID($order_id);
 
@@ -189,23 +175,12 @@ class ControllerPaymentLiqpay extends Controller
         $this->load->model('checkout/order');
         if (!$this->model_checkout_order->getOrder($real_order_id)) { die(); }
 
-
         $private_key = $this->config->get('liqpay_private_key');
+        $public_key  = $this->config->get('liqpay_public_key');
 
-        $gensig = base64_encode(sha1(join('',compact(
-            'private_key',
-            'amount',
-            'currency',
-            'public_key',
-            'order_id',
-            'type',
-            'description',
-            'status',
-            'transaction_id',
-            'sender_phone'
-        )),1));
+        $generated_signature = base64_encode(sha1($private_key.$data.$private_key, 1));
 
-        if ($insig != $gensig) { die(); }
+        if ($signature != $generated_signature || $public_key != $received_public_key) { die(); }
 
         if ($status == 'success') {
             $this->model_checkout_order->update($real_order_id, $this->config->get('liqpay_order_status_id'),'paid');
