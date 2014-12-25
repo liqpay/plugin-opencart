@@ -35,13 +35,14 @@
 
 <script>
 $("input#button-confirm").click(function() {
-    $.ajax({
-        type: 'POST',
-        url: '<?=$action?>',
-        success: function() {
-            $("form#liqpay").submit();
-        }
-    });
+    // $.ajax({
+    //     type: 'POST',
+    //     url: '<?=$action?>',
+    //     success: function() {
+    //         $("form#liqpay").submit();
+    //     }
+    // });
+    $("form#liqpay").submit();
     return false;
 });
 </script>
