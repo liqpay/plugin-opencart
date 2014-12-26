@@ -70,6 +70,8 @@ class ControllerPaymentLiqPay extends Controller
 		$this->data['entry_geo_zone'] = $this->language->get('entry_geo_zone');
 		$this->data['entry_status'] = $this->language->get('entry_status');
 		$this->data['entry_sort_order'] = $this->language->get('entry_sort_order');
+		$this->data['entry_pay_way'] = $this->language->get('entry_pay_way');
+		$this->data['entry_language'] = $this->language->get('entry_language');
 
 		$this->data['button_save'] = $this->language->get('button_save');
 		$this->data['button_cancel'] = $this->language->get('button_cancel');
@@ -179,6 +181,18 @@ class ControllerPaymentLiqPay extends Controller
 			$this->data['liqpay_sort_order'] = $this->request->post['liqpay_sort_order'];
 		} else {
 			$this->data['liqpay_sort_order'] = $this->config->get('liqpay_sort_order');
+		}
+
+		if (isset($this->request->post['liqpay_pay_way'])) {
+			$this->data['liqpay_pay_way'] = $this->request->post['liqpay_pay_way'];
+		} else {
+			$this->data['liqpay_pay_way'] = $this->config->get('liqpay_pay_way');
+		}
+
+		if (isset($this->request->post['liqpay_language'])) {
+			$this->data['liqpay_language'] = $this->request->post['liqpay_language'];
+		} else {
+			$this->data['liqpay_language'] = $this->config->get('liqpay_language');
 		}
 
 		$this->template = 'payment/liqpay.tpl';

@@ -42,6 +42,8 @@ $_['entry_order_status'] = 'Order Status:';
 $_['entry_geo_zone']     = 'Geo Zone:';
 $_['entry_status']       = 'Status:';
 $_['entry_sort_order']   = 'Sort Order:';
+$_['entry_pay_way']      = 'Pay way:';
+$_['entry_language']     = 'Language:';
 
 // Error
 $_['error_permission']   = 'Warning: You do not have permission to modify payment Liqpay!';

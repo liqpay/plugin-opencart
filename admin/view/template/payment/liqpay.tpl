@@ -35,7 +35,7 @@
 
     <div class="box">
         <div class="heading">
-            <h1><img src="view/image/payment.png" alt="" /> <?=$heading_title?></h1>
+            <h1><img src="view/image/liqpay.png" alt="" /> <?=$heading_title?></h1>
             <div class="buttons">
                 <a onclick="$('#form').submit();" class="button"><?=$button_save?></a>
                 <a href="<?=$cancel?>" class="button"><?=$button_cancel?></a>
@@ -61,6 +61,13 @@
                         <td><input type="text" name="liqpay_action" value="<?=$liqpay_action?>" />
                             <?php if ($error_action):?><span class="error"><?=$error_action?></span><?php endif?>
                         </td>
+                    </tr>
+                    <tr>
+                        <td><?=$entry_pay_way?></td>
+                        <td><input type="checkbox" name="card"     value="card" <?php if ($liqpay_pay_way == 'card'):?>checked="checked"<?php endif?> /></td>
+                        <td><input type="checkbox" name="liqpay"   value="liqpay" <?php if ($liqpay_pay_way == 'liqpay'):?>checked="checked"<?php endif?> /></td>
+                        <td><input type="checkbox" name="delayed"  value="delayed" <?php if ($liqpay_pay_way == 'delayed'):?>checked="checked"<?php endif?> /></td>
+                        <td><input type="checkbox" name="invoice"  value="invoice" <?php if ($liqpay_pay_way == 'invoice'):?>checked="checked"<?php endif?> /></td>
                     </tr>
                     <tr>
                         <td><?=$entry_total?></td>
@@ -108,6 +115,19 @@
                                 </option>
                                 <option <?php if (!$liqpay_status): ?>selected="selected"<?php endif?> value="0">
                                     <?=$text_disabled?>
+                                </option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><?=$entry_language?></td>
+                        <td>
+                            <select name="liqpay_language">
+                                <option <?php if ($liqpay_language == 'ru'): ?>selected="selected"<?php endif?> value="ru">
+                                    ru
+                                </option>
+                                <option <?php if ($liqpay_language == 'en'): ?>selected="selected"<?php endif?> value="en">
+                                    en
                                 </option>
                             </select>
                         </td>

@@ -61,8 +61,11 @@ class ControllerPaymentLiqpay extends Controller
             false
         );
         $version  = '3';
-        $language = $this->language->get('code');
-        $language = $language == 'ru' ? 'ru' : 'en';
+        //$language = $this->language->get('code');
+
+        //$language = $language == 'ru' ? 'ru' : 'en';
+        $pay_way = $this->config->get('liqpay_pay_way');
+        $pay_way = $this->config->get('liqpay_language');
 
         $data = base64_encode(
                     json_encode(
@@ -73,7 +76,10 @@ class ControllerPaymentLiqpay extends Controller
                                   'description' => $description,
                                   'order_id'    => $order_id,
                                   'type'        => $type,
-                                  'language'    => $language)
+                                  'language'    => $language,
+                                  'server_url'  => $server_url,
+                                  'result_url'  => $result_url,
+                                  'pay_way'     => $pay_way)
                                 )
                             );
 
