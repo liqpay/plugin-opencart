@@ -35,7 +35,7 @@
 
     <div class="box">
         <div class="heading">
-            <h1><img src="view/image/liqpay.png" alt="" /> <?=$heading_title?></h1>
+            <h1><img src="view/image/payment/liqpay.png" alt="" /> <?=$heading_title?></h1>
             <div class="buttons">
                 <a onclick="$('#form').submit();" class="button"><?=$button_save?></a>
                 <a href="<?=$cancel?>" class="button"><?=$button_cancel?></a>

@@ -67,9 +67,7 @@ class ControllerPaymentLiqpay extends Controller
         $pay_way  = $this->config->get('liqpay_pay_way');
         $language = $this->config->get('liqpay_language');
 
-        $data = base64_encode(
-                  json_encode(
-                    array('version'     => $version,
+        $send_data = array('version'    => $version,
                           'public_key'  => $public_key,
                           'amount'      => $amount,
                           'currency'    => $currency,
@@ -78,10 +76,12 @@ class ControllerPaymentLiqpay extends Controller
                           'type'        => $type,
                           'language'    => $language,
                           'server_url'  => $server_url,
-                          'result_url'  => $result_url,
-                          'pay_way'     => $pay_way)
-                  )
-                );
+                          'result_url'  => $result_url);
+        if(isset($pay_way)){
+          $send_data['pay_way'] = $pay_way;
+        }
+
+        $data = base64_encode(json_encode($send_data));
 
         $signature = base64_encode(sha1($private_key.$data.$private_key, 1));
 
