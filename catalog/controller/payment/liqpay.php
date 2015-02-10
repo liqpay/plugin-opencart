@@ -152,9 +152,16 @@ class ControllerPaymentLiqpay extends Controller
      */
     public function server()
     {
-        if (!$posts = $this->getPosts()) { die(); }
+        // if (!$posts = $this->getPosts()) { die(); }
 
-        list($data, $signature) = $posts;
+        // list($data, $signature) = $posts;
+      $success =
+            isset($_POST['data']) &&
+            isset($_POST['signature']);
+
+        $data = $_POST['data'];
+        $signature = $_POST['signature'];
+
         $parsed_data = json_decode(base64_decode($data));
 
         $received_public_key = $parsed_data['public_key'];
@@ -167,20 +174,23 @@ class ControllerPaymentLiqpay extends Controller
 
         $real_order_id = $this->getRealOrderID($order_id);
 
-        if ($real_order_id <= 0) { die(); }
+        // if ($real_order_id <= 0) { die(); }
 
         $this->load->model('checkout/order');
-        if (!$this->model_checkout_order->getOrder($real_order_id)) { die(); }
+        // if (!$this->model_checkout_order->getOrder($real_order_id)) { die(); }
 
         $private_key = $this->config->get('liqpay_private_key');
         $public_key  = $this->config->get('liqpay_public_key');
 
         $generated_signature = base64_encode(sha1($private_key.$data.$private_key, 1));
 
-        if ($signature != $generated_signature || $public_key != $received_public_key) { die(); }
+        // if ($signature != $generated_signature || $public_key != $received_public_key) { die(); }
 
-        if ($status == 'success') {
+        // if ($status == 'success') {
+        //     $this->model_checkout_order->update($real_order_id, $this->config->get('liqpay_order_status_id'),'paid');
+        // }
+
             $this->model_checkout_order->update($real_order_id, $this->config->get('liqpay_order_status_id'),'paid');
-        }
+       
     }
 }
