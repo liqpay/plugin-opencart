@@ -69,33 +69,27 @@
                             <label><input type="checkbox" name="card"     value="card" class="pay_way" onclick="pay_way(this)" 
                             <?php if (strpos($liqpay_pay_way, 'card') !== false):?>checked="checked"<?php endif?>
                             /> Карта</label>
-                            <!-- <input type="text" id="pay_way_card" hidden value="<?=$liqpay_pay_way['card']?>"> -->
-
-                            
-
-
+                           
+                           
                             <label><input type="checkbox" name="liqpay"   value="liqpay" class="pay_way" onclick="pay_way(this)" 
                             <?php if (strpos($liqpay_pay_way, 'liqpay') !== false):?>checked="checked"<?php endif?>
                             /> Liqpay</label>
-                            <!-- <input type="text" id="pay_way_liqpay" hidden value="<?=$liqpay_pay_way['liqpay']?>"> -->
-
+                           
 
                             <label><input type="checkbox" name="delayed"  value="delayed" class="pay_way" onclick="pay_way(this)"
                             <?php if (strpos($liqpay_pay_way, 'delayed') !== false):?>checked="checked"<?php endif?>
                             /> Терминал</label>
-                            <!-- <input type="text" id="pay_way_delayed" hidden value="<?=$liqpay_pay_way['delayed']?>"> -->
-
+                           
 
                             <label><input type="checkbox" name="invoice"  value="invoice" class="pay_way" onclick="pay_way(this)"
                             <?php if (strpos($liqpay_pay_way, 'invoice') !== false):?>checked="checked"<?php endif?>
                             /> Invoice</label>
-                            <!-- <input type="text" id="pay_way_invoice" hidden value="<?=$liqpay_pay_way['invoice']?>"> -->
-
+                            
 
                             <label><input type="checkbox" name="privat24"  value="privat24" class="pay_way" onclick="pay_way(this)"
                             <?php if (strpos($liqpay_pay_way, 'privat24') !== false):?>checked="checked"<?php endif?>
                             /> Privat24</label>
-                            <!-- <input type="text" id="pay_way_privat24" hidden value="<?=$liqpay_pay_way['privat24']?>"> -->
+                            
 
                             <input type="text" id="pay_way" hidden value="<?=$liqpay_pay_way?>"/>
 
