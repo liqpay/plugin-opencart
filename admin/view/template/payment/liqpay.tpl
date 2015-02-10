@@ -169,7 +169,7 @@
 
     <script>
         function pay_way(){
-            var selector = $("#pay_way");
+            var selector = "#pay_way";
             // $(selector).val(e.checked);
 
             var elems = $(".pay_way:checked");
