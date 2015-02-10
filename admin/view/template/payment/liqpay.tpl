@@ -91,7 +91,8 @@
                             /> Privat24</label>
                             
 
-                            <input type="text" id="pay_way" value="<?=$liqpay_pay_way?>"/>
+                            <input type="text" id="pay_way" 
+                            value="<?=$liqpay_pay_way?>">
 
                         </td>
                     </tr>
@@ -169,7 +170,7 @@
 
     <script>
         function pay_way(){
-            var selector = "#pay_way";
+            // var selector = "#pay_way";
             // $(selector).val(e.checked);
 
             var elems = $(".pay_way:checked");
@@ -177,7 +178,7 @@
             elems.each(function(){
                 str += $(this).attr('name') + ',';
             })
-            $(selector).val(str);
+            $("#pay_way").val(str);
 
         }
     </script>
