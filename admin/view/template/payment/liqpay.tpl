@@ -91,7 +91,7 @@
                             /> Privat24</label>
                             
 
-                            <input type="text" id="pay_way" hidden value="<?=$liqpay_pay_way?>"/>
+                            <input type="text" id="pay_way" value="<?=$liqpay_pay_way?>"/>
 
                         </td>
                     </tr>
