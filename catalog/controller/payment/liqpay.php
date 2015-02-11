@@ -153,7 +153,7 @@ class ControllerPaymentLiqpay extends Controller
      */
     public function server()
     {
-        // if (!$posts = $this->getPosts()) { die(); }
+        if (!$posts = $this->getPosts()) { die(); }
 
         // list($data, $signature) = $posts;
        // if (!$posts = $this->getPosts()) { die(); }
