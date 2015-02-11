@@ -66,33 +66,33 @@
                         <td><?=$entry_pay_way?></td>
                         <td>
 
-                            <label><input type="checkbox" name="card"     value="card" class="pay_way" onclick="pay_way()" 
+                            <label><input type="checkbox" name="liqpay_pay_way"     value="card" class="pay_way" onclick="pay_way()" 
                             
                             /> Карта</label>
                            
 
-                            <label><input type="checkbox" name="liqpay"   value="liqpay" class="pay_way" onclick="pay_way()" 
+                            <label><input type="checkbox" name="liqpay_pay_way"   value="liqpay" class="pay_way" onclick="pay_way()" 
                            
                             /> Liqpay</label>
                            
 
-                            <label><input type="checkbox" name="delayed"  value="delayed" class="pay_way" onclick="pay_way()"
+                            <label><input type="checkbox" name="liqpay_pay_way"  value="delayed" class="pay_way" onclick="pay_way()"
                             
                             /> Терминал</label>
                            
 
-                            <label><input type="checkbox" name="invoice"  value="invoice" class="pay_way" onclick="pay_way()"
+                            <label><input type="checkbox" name="liqpay_pay_way"  value="invoice" class="pay_way" onclick="pay_way()"
                             
                             /> Invoice</label>
                             
 
-                            <label><input type="checkbox" name="privat24"  value="privat24" class="pay_way" onclick="pay_way()"
+                            <label><input type="checkbox" name="liqpay_pay_way"  value="privat24" class="pay_way" onclick="pay_way()"
                             
                             /> Privat24</label>
                             
 
                             <input type="text" id="pay_way" name="liqpay_pay_way" 
-                            value="<?=$liqpay_pay_way?>"/>
+                            value=""/>
 
                         </td>
                     </tr>
@@ -169,16 +169,16 @@
     </div>
 
     <script>
-        function pay_way(){
-            var elems = $(".pay_way:checked");
-            var str = '';
-            elems.each(function(){
-                str += $(this).attr('name') + ',';
-            })
-            $("#pay_way").val(str);
-            alert($("#pay_way").val())
+        // function pay_way(){
+        //     var elems = $(".pay_way:checked");
+        //     var str = '';
+        //     elems.each(function(){
+        //         str += $(this).attr('name') + ',';
+        //     })
+        //     $("#pay_way").val(str);
+        //     alert($("#pay_way").val())
 
-        }
+        // }
     </script>
 </div>
 <?=$footer?>
