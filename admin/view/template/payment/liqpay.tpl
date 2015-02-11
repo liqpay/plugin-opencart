@@ -62,40 +62,7 @@
                             <?php if ($error_action):?><span class="error"><?=$error_action?></span><?php endif?>
                         </td>
                     </tr>
-                    <!-- <tr>
-                        <td><?=$entry_pay_way?></td>
-                        <td>
-
-                            <label><input type="checkbox" name="card" value="card" class="pay_way" onclick="pay_way(this)" 
-                            
-                            /> Карта</label>
-                           
-
-                            <label><input type="checkbox" name="liqpay" value="liqpay" class="pay_way" onclick="pay_way(this)" 
-                           
-                            /> Liqpay</label>
-                           
-
-                            <label><input type="checkbox" name="delayed" value="delayed" class="pay_way" onclick="pay_way(this)"
-                            
-                            /> Терминал</label>
-                           
-
-                            <label><input type="checkbox" name="invoice" value="invoice" class="pay_way" onclick="pay_way(this)"
-                            
-                            /> Invoice</label>
-                            
-
-                            <label><input type="checkbox" name="privat24" value="privat24" class="pay_way" onclick="pay_way(this)"
-                            
-                            /> Privat24</label>
-                            
-
-                            <input type="text" id="pay_way" name="pay_way" 
-                            value="<?=$liqpay_pay_way?>"/>
-
-                        </td>
-                    </tr> -->
+                    
                     <tr>
                         <td><?=$entry_total?></td>
                         <td><input type="text" name="liqpay_total" value="<?=$liqpay_total?>" /></td>
