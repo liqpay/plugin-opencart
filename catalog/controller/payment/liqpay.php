@@ -64,7 +64,7 @@ class ControllerPaymentLiqpay extends Controller
         //$language = $this->language->get('code');
 
         //$language = $language == 'ru' ? 'ru' : 'en';
-        $pay_way  = $this->config->get('liqpay_pay_way');
+        // $pay_way  = $this->config->get('liqpay_pay_way');
         $language = $this->config->get('liqpay_language');
 
         $send_data = array('version'    => $version,
@@ -77,9 +77,9 @@ class ControllerPaymentLiqpay extends Controller
                           'language'    => $language,
                           'server_url'  => $server_url,
                           'result_url'  => $result_url);
-        if(isset($pay_way)){
-          $send_data['pay_way'] = $pay_way;
-        }
+        // if(isset($pay_way)){
+        //   $send_data['pay_way'] = $pay_way;
+        // }
 
         $data = base64_encode(json_encode($send_data));
 
@@ -171,21 +171,19 @@ class ControllerPaymentLiqpay extends Controller
         $currency            = $parsed_data['currency'];
         $transaction_id      = $parsed_data['transaction_id'];
 
-        error_log($status, 0);
-        
         $real_order_id = $this->getRealOrderID($order_id);
 
-        // if ($real_order_id <= 0) { die(); }
+        if ($real_order_id <= 0) { die(); }
 
         $this->load->model('checkout/order');
-        // if (!$this->model_checkout_order->getOrder($real_order_id)) { die(); }
+        if (!$this->model_checkout_order->getOrder($real_order_id)) { die(); }
 
         $private_key = $this->config->get('liqpay_private_key');
         $public_key  = $this->config->get('liqpay_public_key');
 
         $generated_signature = base64_encode(sha1($private_key.$data.$private_key, 1));
 
-        // if ($signature != $generated_signature || $public_key != $received_public_key) { die(); }
+        if ($signature != $generated_signature || $public_key != $received_public_key) { die(); }
 
         if ($status == 'success') {
             $this->model_checkout_order->update($real_order_id, $this->config->get('liqpay_order_status_id'),'paid');

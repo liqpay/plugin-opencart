@@ -183,11 +183,11 @@ class ControllerPaymentLiqPay extends Controller
 			$this->data['liqpay_sort_order'] = $this->config->get('liqpay_sort_order');
 		}
 
-		if (isset($this->request->post['liqpay_pay_way'])) {
-			$this->data['liqpay_pay_way'] = $this->request->post['liqpay_pay_way'];
-		} else {
-			$this->data['liqpay_pay_way'] = $this->config->get('liqpay_pay_way');
-		}
+		// if (isset($this->request->post['liqpay_pay_way'])) {
+		// 	$this->data['liqpay_pay_way'] = $this->request->post['liqpay_pay_way'];
+		// } else {
+		// 	$this->data['liqpay_pay_way'] = $this->config->get('liqpay_pay_way');
+		// }
 
 		if (isset($this->request->post['liqpay_language'])) {
 			$this->data['liqpay_language'] = $this->request->post['liqpay_language'];

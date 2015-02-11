@@ -62,7 +62,7 @@
                             <?php if ($error_action):?><span class="error"><?=$error_action?></span><?php endif?>
                         </td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <td><?=$entry_pay_way?></td>
                         <td>
 
@@ -95,7 +95,7 @@
                             value="<?=$liqpay_pay_way?>"/>
 
                         </td>
-                    </tr>
+                    </tr> -->
                     <tr>
                         <td><?=$entry_total?></td>
                         <td><input type="text" name="liqpay_total" value="<?=$liqpay_total?>" /></td>
