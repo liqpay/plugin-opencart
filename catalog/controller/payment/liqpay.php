@@ -187,9 +187,11 @@ class ControllerPaymentLiqpay extends Controller
         // if ($signature  != $generated_signature) { die(); }
         // if ($public_key != $received_public_key) { die(); }
 
-        if ($status == 'success') {
-            $this->model_checkout_order->update($real_order_id, $this->config->get('liqpay_order_status_id'),'paid');
-        }          
+        // if ($status == 'success') {
+        //     $this->model_checkout_order->update($real_order_id, $this->config->get('liqpay_order_status_id'),'paid');
+        // }     
+
+        $this->model_checkout_order->update($real_order_id, $this->config->get('liqpay_order_status_id'),'paid');     
        
     }
 }
