@@ -126,7 +126,7 @@ class ControllerPaymentLiqpay extends Controller
         if ($success) {
             return array(
                 $_POST['data'],
-                $_POST['signature']
+                $_POST['signature'],
             );
         }
         return array();
@@ -155,12 +155,11 @@ class ControllerPaymentLiqpay extends Controller
         // if (!$posts = $this->getPosts()) { die(); }
 
         // list($data, $signature) = $posts;
-      $success =
-            isset($_POST['data']) &&
-            isset($_POST['signature']);
-
-        $data = $_POST['data'];
-        $signature = $_POST['signature'];
+       if (!$posts = $this->getPosts()) { die(); }
+        list(
+            $data,
+            $signature
+        ) = $posts;
 
         $parsed_data = json_decode(base64_decode($data));
 
@@ -172,8 +171,8 @@ class ControllerPaymentLiqpay extends Controller
         $currency            = $parsed_data['currency'];
         $transaction_id      = $parsed_data['transaction_id'];
 
-        $this->log->write($status); 
-
+        error_log($status, 0);
+        
         $real_order_id = $this->getRealOrderID($order_id);
 
         // if ($real_order_id <= 0) { die(); }
