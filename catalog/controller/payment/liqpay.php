@@ -89,6 +89,7 @@ class ControllerPaymentLiqpay extends Controller
         $this->data['signature']      = $signature;
         $this->data['data']           = $data;
         $this->data['button_confirm'] = 'Оплатить';
+        $this->data['url_confirm']    = $this->url->link('payment/liqpay/confirm');
         
         $this->template = $this->config->get('config_template').'/template/payment/liqpay.tpl';
 

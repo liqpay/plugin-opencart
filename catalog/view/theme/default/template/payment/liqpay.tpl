@@ -35,7 +35,13 @@
 
 <script>
 $("input#button-confirm").click(function() {
-    $("form#liqpay").submit();
+    $.ajax({
+        type: 'get',
+        url: '<?=$url_confirm?>',
+        success: function() {
+            $("form#liqpay").submit();
+        }
+    });
     return false;
 });
 </script>
