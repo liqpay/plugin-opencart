@@ -184,7 +184,8 @@ class ControllerPaymentLiqpay extends Controller
 
         $generated_signature = base64_encode(sha1($private_key.$data.$private_key, 1));
 
-        if ($signature != $generated_signature || $public_key != $received_public_key) { die(); }
+        if ($signature  != $generated_signature) { die(); }
+        // if ($public_key != $received_public_key) { die(); }
 
         if ($status == 'success') {
             $this->model_checkout_order->update($real_order_id, $this->config->get('liqpay_order_status_id'),'paid');
