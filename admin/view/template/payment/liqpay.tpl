@@ -91,7 +91,7 @@
                             /> Privat24</label>
                             
 
-                            <input type="text" id="pay_way" 
+                            <input type="text" id="pay_way" name="liqpay_pay_way" 
                             value="<?=$liqpay_pay_way?>"/>
 
                         </td>
@@ -170,10 +170,6 @@
 
     <script>
         function pay_way(){
-            // var selector = "#pay_way";
-            // $(selector).val(e.checked);
-            
-
             var elems = $(".pay_way:checked");
             var str = '';
             elems.each(function(){
