@@ -172,6 +172,8 @@ class ControllerPaymentLiqpay extends Controller
         $currency            = $parsed_data['currency'];
         $transaction_id      = $parsed_data['transaction_id'];
 
+        $this->log->write($status); 
+
         $real_order_id = $this->getRealOrderID($order_id);
 
         // if ($real_order_id <= 0) { die(); }
