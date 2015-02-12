@@ -92,7 +92,7 @@
                             
 
                             <input type="text" id="pay_way" name="liqpay_pay_way" 
-                            value="" hidden/>
+                            value=""/>
 
                         </td>
                     </tr>
