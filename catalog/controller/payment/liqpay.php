@@ -77,9 +77,9 @@ class ControllerPaymentLiqpay extends Controller
                           'language'    => $language,
                           'server_url'  => $server_url,
                           'result_url'  => $result_url);
-        // if(isset($pay_way)){
-        //   $send_data['pay_way'] = $pay_way;
-        // }
+        if(isset($pay_way)){
+          $send_data['pay_way'] = $pay_way;
+        }
 
         $data = base64_encode(json_encode($send_data));
 
