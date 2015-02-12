@@ -153,16 +153,16 @@ class ControllerPaymentLiqpay extends Controller
      */
     public function server()
     {
-        if (!$posts = $this->getPosts()) { die(); }
+        if (!$posts = $this->getPosts()) { die('Posts error'); }
 
-        // list($data, $signature) = $posts;
-       // if (!$posts = $this->getPosts()) { die(); }
         list(
             $data,
             $signature
         ) = $posts;
+        
+        if(!$data || !$signature) {die("No data or signature");}
 
-        $parsed_data = json_decode(base64_decode($data));
+        $parsed_data = json_decode(base64_decode($data), true);
 
         $received_public_key = $parsed_data['public_key'];
         $order_id            = $parsed_data['order_id'];
@@ -174,24 +174,25 @@ class ControllerPaymentLiqpay extends Controller
 
         $real_order_id = $this->getRealOrderID($order_id);
 
-        // if ($real_order_id <= 0) { die(); }
+        if ($real_order_id <= 0) { die("Order_id real_order_id < 0"); }
 
         $this->load->model('checkout/order');
-        // if (!$this->model_checkout_order->getOrder($real_order_id)) { die(); }
+        if (!$this->model_checkout_order->getOrder($real_order_id)) { die("Order_id fail");}
 
         $private_key = $this->config->get('liqpay_private_key');
         $public_key  = $this->config->get('liqpay_public_key');
 
         $generated_signature = base64_encode(sha1($private_key.$data.$private_key, 1));
 
-        // if ($signature  != $generated_signature) { die(); }
-        // if ($public_key != $received_public_key) { die(); }
+        if ($signature  != $generated_signature) { die("Signature secure fail"); }
+        if ($public_key != $received_public_key) { die("public_key secure fail"); }
 
-        // if ($status == 'success') {
-        //     $this->model_checkout_order->update($real_order_id, $this->config->get('liqpay_order_status_id'),'paid');
-        // }     
+        if ($status == 'success') {
+            $this->model_checkout_order->update($real_order_id, $this->config->get('liqpay_order_status_id'),'paid');
+        } else{
+            $this->confirm();
+        } 
 
-        $this->model_checkout_order->update($real_order_id, $this->config->get('liqpay_order_status_id'),'paid');     
        
     }
 }

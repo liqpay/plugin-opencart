@@ -66,27 +66,27 @@
                         <td><?=$entry_pay_way?></td>
                         <td>
 
-                            <label><input type="checkbox" value="card" class="pay_way" onclick="pay_way(this)" 
+                            <label onclick="pay_way(this)"><input type="checkbox" value="card" class="pay_way"  
                             <?php if (strpos($liqpay_pay_way, "card") !== false):?>checked="checked"<?php endif?>
                             /> Карта</label>
                            
 
-                            <label><input type="checkbox" value="liqpay" class="pay_way" onclick="pay_way(this)" 
-                           <?php if (strpos($liqpay_pay_way, "liqpay") !== false):?>checked="checked"<?php endif?>
+                            <label onclick="pay_way(this)" ><input type="checkbox" value="liqpay" class="pay_way" 
+                            <?php if (strpos($liqpay_pay_way, "liqpay") !== false):?>checked="checked"<?php endif?>
                             /> Liqpay</label>
                            
 
-                            <label><input type="checkbox" value="delayed" class="pay_way" onclick="pay_way(this)"
+                            <label onclick="pay_way(this)"><input type="checkbox" value="delayed" class="pay_way"
                             <?php if (strpos($liqpay_pay_way, "delayed") !== false):?>checked="checked"<?php endif?>
                             /> Терминал</label>
                            
 
-                            <label><input type="checkbox" value="invoice" class="pay_way" onclick="pay_way(this)"
+                            <label onclick="pay_way(this)"><input type="checkbox" value="invoice" class="pay_way" 
                            <?php if (strpos($liqpay_pay_way, "invoice") !== false):?>checked="checked"<?php endif?>
                             /> Invoice</label>
                             
 
-                            <label><input type="checkbox" value="privat24" class="pay_way" onclick="pay_way(this)"
+                            <label onclick="pay_way(this)"><input type="checkbox" value="privat24" class="pay_way"
                             <?php if (strpos($liqpay_pay_way, "privat24") !== false):?>checked="checked"<?php endif?>
                             /> Privat24</label>
                             
