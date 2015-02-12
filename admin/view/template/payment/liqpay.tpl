@@ -66,33 +66,33 @@
                         <td><?=$entry_pay_way?></td>
                         <td>
 
-                            <label onclick="pay_way(this)"><input type="checkbox" value="card" name="liqpay_pay_way" class="pay_way"  
+                            <label onclick="pay_way(this)"><input type="checkbox" value="card" name="card" class="pay_way"  
                             <?php if (strpos($liqpay_pay_way, "card") !== false):?>checked="checked"<?php endif?>
                             /> Карта</label>
                            
 
-                            <label onclick="pay_way(this)" ><input type="checkbox" value="liqpay" name="liqpay_pay_way" class="pay_way" 
+                            <label onclick="pay_way(this)" ><input type="checkbox" value="liqpay" name="liqpay" class="pay_way" 
                             <?php if (strpos($liqpay_pay_way, "liqpay") !== false):?>checked="checked"<?php endif?>
                             /> Liqpay</label>
                            
 
-                            <label onclick="pay_way(this)"><input type="checkbox" value="delayed" name="liqpay_pay_way" class="pay_way"
+                            <label onclick="pay_way(this)"><input type="checkbox" value="delayed" name="delayed" class="pay_way"
                             <?php if (strpos($liqpay_pay_way, "delayed") !== false):?>checked="checked"<?php endif?>
                             /> Терминал</label>
                            
 
-                            <label onclick="pay_way(this)"><input type="checkbox" value="invoice" name="liqpay_pay_way" class="pay_way" 
+                            <label onclick="pay_way(this)"><input type="checkbox" value="invoice" name="invoice" class="pay_way" 
                            <?php if (strpos($liqpay_pay_way, "invoice") !== false):?>checked="checked"<?php endif?>
                             /> Invoice</label>
                             
 
-                            <label onclick="pay_way(this)"><input type="checkbox" value="privat24" name="liqpay_pay_way" class="pay_way"
+                            <label onclick="pay_way(this)"><input type="checkbox" value="privat24" name="privat24" class="pay_way"
                             <?php if (strpos($liqpay_pay_way, "privat24") !== false):?>checked="checked"<?php endif?>
                             /> Privat24</label>
                             
 
                             <input type="text" id="pay_way" name="liqpay_pay_way" 
-                            value="<?=$liqpay_pay_way?>"/>
+                            value="" hidden/>
 
                         </td>
                     </tr>
@@ -167,18 +167,17 @@
             </form>
         </div>
     </div>
-
-    <script>
+</div>
+<script>
         function pay_way(e){
             
             var elems = $(".pay_way:checked");
             var str = '';
             elems.each(function(){
-                str += $(this).val() + ',';
+                str += $(this).prop("name") + ',';
             })
             $("#pay_way").val(str);
 
         }
-    </script>
-</div>
+</script>
 <?=$footer?>
