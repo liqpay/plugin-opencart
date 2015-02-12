@@ -64,7 +64,7 @@ class ControllerPaymentLiqpay extends Controller
         //$language = $this->language->get('code');
 
         //$language = $language == 'ru' ? 'ru' : 'en';
-        // $pay_way  = $this->config->get('liqpay_pay_way');
+        $pay_way  = $this->config->get('liqpay_pay_way');
         $language = $this->config->get('liqpay_language');
 
         $send_data = array('version'    => $version,
