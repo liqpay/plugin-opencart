@@ -3,6 +3,8 @@ plugin-opencart
 
 LiqPay plugin for opencart CMS
 
+Tested for all versions since 1.5.4
+
 #### Для установки модуля скопируйте его в каталог: ####
 
 ```
