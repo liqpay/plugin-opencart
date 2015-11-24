@@ -141,7 +141,7 @@ class ControllerPaymentLiqPay extends Controller
 		} else {
 			$this->data['liqpay_action'] = $this->config->get('liqpay_action');
 			if (empty($this->data['liqpay_action'])) {
-				$this->data['liqpay_action'] = 'https://www.liqpay.com/api/checkout';
+				$this->data['liqpay_action'] = 'https://www.liqpay.com/api/3/checkout';
 			}
 		}
 
