@@ -40,6 +40,8 @@ class ControllerPaymentLiqpay extends Controller
         $this->load->model('checkout/order');
 
         $order_id = $this->session->data['order_id'];
+        /*set order_id to global variable*/
+        $this->data['order_id'] = $this->session->data['order_id'];
 
         $order_info = $this->model_checkout_order->getOrder($order_id);
 
@@ -109,10 +111,11 @@ class ControllerPaymentLiqpay extends Controller
     public function confirm()
     {
         $this->load->model('checkout/order'); 
-        echo $this->session->data['order_id'];
-        $this->model_checkout_order->confirm($this->session->data['order_id'], $this->config->get('config_order_status_id'), 'unpaid');
+        $order = $this->session->data['order_id'];
+        //$this->model_checkout_order->confirm($order, $this->config->get('config_order_status_id'), 'unpaid');
+        $this->model_checkout_order->confirm($this->session->data['order_id'], 2);
     }
-
+    
 
     /**
      * Check and return posts data
@@ -189,8 +192,7 @@ class ControllerPaymentLiqpay extends Controller
         if ($public_key != $received_public_key) { die("public_key secure fail"); }
 
         if ($status == 'success') {
-            $this->confirm();
-            $this->model_checkout_order->update($real_order_id, $this->config->get('liqpay_order_status_id'),'paid');
+            // there you can update your order
         }
 
     }
