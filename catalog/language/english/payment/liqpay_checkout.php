@@ -23,4 +23,4 @@
  */
 
 // Text
-$_['text_title'] = 'Liqpay';
+$_['text_title'] = 'Liqpay CHECKOUT';

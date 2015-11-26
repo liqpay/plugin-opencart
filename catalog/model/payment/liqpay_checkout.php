@@ -27,36 +27,15 @@
  *
  * @author      Liqpay <support@liqpay.com>
  */
-class ModelPaymentLiqPay extends Model
-{
+class ModelPaymentLiqPayCheckout extends Model {
+	public function getMethod($address, $total) {
+		$this->load->language('payment/liqpay_checkout');
 
-    /**
-     * Index action
-     *
-     * @return void
-     */
- 	public function getMethod($address, $total)
-	{
-		$this->language->load('payment/liqpay');
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "zone_to_geo_zone WHERE geo_zone_id = '" . (int)$this->config->get('liqpay_checkout_geo_zone_id') . "' AND country_id = '" . (int)$address['country_id'] . "' AND (zone_id = '" . (int)$address['zone_id'] . "' OR zone_id = '0')");
 
-		$tbl_zone_to_geo_zone = DB_PREFIX.'zone_to_geo_zone';
-		$liqpay_geo_zone_id = (int)$this->config->get('liqpay_geo_zone_id');
-		$country_id = (int)$address['country_id'];
-		$zone_id = (int)$address['zone_id'];
-
-		$sql = "
-				SELECT *
-				FROM {$tbl_zone_to_geo_zone}
-				WHERE geo_zone_id = '{$liqpay_geo_zone_id}'
-				AND country_id = '{$country_id}'
-				AND (zone_id = '{$zone_id}' OR zone_id = '0')
-		";
-
-		$query = $this->db->query($sql);
-
-		if ($this->config->get('liqpay_total') > 0 && $this->config->get('liqpay_total') > $total) {
+		if ($this->config->get('liqpay_checkout_total') > 0 && $this->config->get('lliqpay_checkout_total') > $total) {
 			$status = false;
-		} elseif (!$this->config->get('liqpay_geo_zone_id')) {
+		} elseif (!$this->config->get('liqpay_checkout_geo_zone_id')) {
 			$status = true;
 		} elseif ($query->num_rows) {
 			$status = true;
@@ -68,9 +47,10 @@ class ModelPaymentLiqPay extends Model
 
 		if ($status) {
 			$method_data = array(
-				'code'       => 'liqpay',
+				'code'       => 'liqpay_checkout',
 				'title'      => $this->language->get('text_title'),
-				'sort_order' => $this->config->get('liqpay_sort_order')
+				'terms'      => '',
+				'sort_order' => $this->config->get('liqpay_checkout_sort_order')
 			);
 		}
 

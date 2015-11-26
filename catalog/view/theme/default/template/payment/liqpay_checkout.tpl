@@ -17,13 +17,13 @@
  *
  * EXTENSION INFORMATION
  *
- * OpenCart         1.5.6
+ * OpenCart         2.x
  * LiqPay API       https://www.liqpay.com/ru/doc
  *
  */
 ?>
 
-<form method="POST" action="<?=$action?>" id="liqpay" accept-charset="utf-8">
+<form method="POST" action="<?=$action?>" id="liqpay_checkout" accept-charset="utf-8">
     <input type="hidden" name="data"  value="<?=$data?>" />
     <input type="hidden" name="signature" value="<?=$signature?>" />
     <div class="buttons">
@@ -32,16 +32,3 @@
         </div>
     </div>
 </form>
-
-<script>
-$("input#button-confirm").click(function() {
-    $.ajax({
-        type: 'get',
-        url: '<?=$url_confirm?>',
-        success: function() {
-            $("form#liqpay").submit();
-        }
-    });
-    return false;
-});
-</script>

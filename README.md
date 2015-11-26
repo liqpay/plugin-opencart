@@ -1,7 +1,7 @@
 plugin-opencart
 ===============
 
-LiqPay plugin for opencart CMS
+LiqPay Checkout plugin for opencart CMS since 2.x
 
 #### Для установки модуля скопируйте его в каталог: ####
 
