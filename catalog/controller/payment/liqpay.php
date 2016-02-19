@@ -63,6 +63,7 @@ class ControllerPaymentLiqpay extends Controller
             false
         );
         $version  = '3';
+        $action   = 'pay';
         //$language = $this->language->get('code');
 
         //$language = $language == 'ru' ? 'ru' : 'en';
@@ -70,6 +71,7 @@ class ControllerPaymentLiqpay extends Controller
         $language = $this->config->get('liqpay_language');
 
         $send_data = array('version'    => $version,
+                          'action'      => $action,
                           'public_key'  => $public_key,
                           'amount'      => $amount,
                           'currency'    => $currency,
