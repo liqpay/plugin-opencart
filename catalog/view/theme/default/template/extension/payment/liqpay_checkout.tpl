@@ -17,7 +17,7 @@
  *
  * EXTENSION INFORMATION
  *
- * OpenCart         2.x
+ * OpenCart         2.3.x
  * LiqPay API       https://www.liqpay.com/ru/doc
  *
  */
@@ -28,7 +28,7 @@
     <input type="hidden" name="signature" value="<?=$signature?>" />
     <div class="buttons">
         <div class="right">
-            <input type="submit" value="<?php echo $button_confirm; ?>" id="button-confirm" class="button" />
+            <input type="submit" value="<?php echo $button_confirm; ?>" id="button-confirm" class="btn btn-primary button" />
         </div>
     </div>
 </form>

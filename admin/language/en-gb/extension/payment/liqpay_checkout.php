@@ -11,8 +11,8 @@ $_['text_card']			 = 'Credit Card';
 $_['text_liqpay']		 = '<img src="view/image/payment/liqpay.png" alt="LIQPAY" title="LIQPAY" style="border: 1px solid #EEEEEE;" />';
 
 // Entry
-$_['entry_merchant']	 = 'Public Key';
-$_['entry_signature']	 = 'Private Key';
+$_['entry_public_key']	 = 'Public Key';
+$_['entry_private_key']	 = 'Private Key';
 $_['entry_api']	         = 'https://www.liqpay.com/api/3/checkout';
 $_['entry_action']	     = 'pay';
 $_['entry_type']		 = 'Type';
@@ -27,7 +27,7 @@ $_['help_total']		 = 'The checkout total the order must reach before this paymen
 
 // Error
 $_['error_permission']	 = 'Warning: You do not have permission to modify payment LIQPAY!';
-$_['error_merchant']	 = 'Merchant ID Required!';
-$_['error_signature']	 = 'Signature Required!';
+$_['error_public_key']	 = 'Public Key Required!';
+$_['error_private_key']	 = 'Private Key Required!';
 $_['error_api']	         = 'API Required!';
 $_['error_action']	     = 'Action Required!';

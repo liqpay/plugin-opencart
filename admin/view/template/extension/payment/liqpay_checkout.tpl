@@ -26,20 +26,20 @@
       <div class="panel-body">
         <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form-liqpay" class="form-horizontal">
           <div class="form-group required">
-            <label class="col-sm-2 control-label" for="input-merchant"><?php echo $entry_merchant; ?></label>
+            <label class="col-sm-2 control-label" for="input-public-key"><?php echo $entry_public_key; ?></label>
             <div class="col-sm-10">
-              <input type="text" name="liqpay_checkout_merchant" value="<?php echo $liqpay_checkout_merchant; ?>" placeholder="<?php echo $entry_merchant; ?>" id="input-merchant" class="form-control" />
-              <?php if ($error_merchant) { ?>
-              <div class="text-danger"><?php echo $error_merchant; ?></div>
+              <input type="text" name="liqpay_checkout_public_key" value="<?php echo $liqpay_checkout_public_key; ?>" placeholder="<?php echo $entry_public_key; ?>" id="input-public-key" class="form-control" />
+              <?php if ($error_public_key) { ?>
+              <div class="text-danger"><?php echo $error_public_key; ?></div>
               <?php } ?>
             </div>
           </div>
           <div class="form-group required">
-            <label class="col-sm-2 control-label" for="input-signature"><?php echo $entry_signature; ?></label>
+            <label class="col-sm-2 control-label" for="input-private-key"><?php echo $entry_private_key; ?></label>
             <div class="col-sm-10">
-              <input type="text" name="liqpay_checkout_signature" value="<?php echo $liqpay_checkout_signature; ?>" placeholder="<?php echo $entry_signature; ?>" id="input-signature" class="form-control" />
-              <?php if ($error_signature) { ?>
-              <div class="text-danger"><?php echo $error_signature; ?></div>
+              <input type="text" name="liqpay_checkout_private_key" value="<?php echo $liqpay_checkout_private_key; ?>" placeholder="<?php echo $entry_private_key; ?>" id="input-private-key" class="form-control" />
+              <?php if ($error_private_key) { ?>
+              <div class="text-danger"><?php echo $error_private_key; ?></div>
               <?php } ?>
             </div>
           </div>
@@ -78,7 +78,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-order-status"><?php echo $entry_order_status; ?></label>
             <div class="col-sm-10">
-              <select name="liqpay_order_status_id" id="input-order-status" class="form-control">
+              <select name="liqpay_checkout_order_status_id" id="input-order-status" class="form-control">
                 <?php foreach ($order_statuses as $order_status) { ?>
                 <?php if ($order_status['order_status_id'] == $liqpay_checkout_order_status_id) { ?>
                 <option value="<?php echo $order_status['order_status_id']; ?>" selected="selected"><?php echo $order_status['name']; ?></option>

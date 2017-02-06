@@ -13,7 +13,7 @@ LiqPay Checkout plugin for opencart CMS since 2.x
 #### Затем в панели администратора установите и настройте его: ####
 
 ```
-Extensions > Payments > Liqpay нажать [Install]
+Extensions > Payments > Liqpay Checkout нажать [Install]
 ```
 
 
