@@ -18,14 +18,14 @@
  * EXTENSION INFORMATION
  *
  * OpenCart         1.5.6
- * LiqPay API       https://www.liqpay.com/ru/doc
+ * LiqPay API       https://www.liqpay.ua/liqpay.ua/documentation/ru
  *
  */
 
 /**
  * Payment method liqpay model (catalog)
  *
- * @author      Liqpay <support@liqpay.com>
+ * @author      Liqpay <support@liqpay.ua>
  */
 class ModelPaymentLiqPay extends Model
 {

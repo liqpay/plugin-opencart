@@ -18,7 +18,7 @@
  * EXTENSION INFORMATION
  *
  * OpenCart         1.5.6
- * LiqPay API       https://www.liqpay.com/ru/doc
+ * LiqPay API       https://www.liqpay.ua/liqpay.ua/documentation/ru
  *
  */
 
@@ -30,7 +30,7 @@ $_['text_payment']       = 'Payment';
 $_['text_success']       = 'Success: You have modified Liqpay account details!';
 $_['text_buy']           = 'buy';
 $_['text_donate']        = 'donate';
-$_['text_liqpay']        = '<a href="https://www.liqpay.com/ru/doc" target="_blank"><img src="view/image/payment/liqpay.png" alt="Liqpay" title="Liqpay" style="border: 1px solid #EEEEEE; width:111px;" /></a>';
+$_['text_liqpay']        = '<a href="https://www.liqpay.ua/liqpay.ua/documentation/ru" target="_blank"><img src="view/image/payment/liqpay.png" alt="Liqpay" title="Liqpay" style="border: 1px solid #EEEEEE; width:111px;" /></a>';
 
 // Entry
 $_['entry_public_key']   = 'Public key:';

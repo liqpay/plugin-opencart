@@ -18,14 +18,14 @@
  * EXTENSION INFORMATION
  *
  * OpenCart         2.3.X
- * LiqPay API       https://www.liqpay.com/ru/doc
+ * LiqPay API       https://www.liqpay.ua/liqpay.ua/documentation/ru
  *
  */
 
 /**
  * Payment method liqpay controller (catalog)
  *
- * @author      Liqpay <support@liqpay.com>
+ * @author      Liqpay <support@liqpay.ua>
  */
 class ControllerExtensionPaymentLiqPayCheckout extends Controller
 {
