@@ -18,7 +18,7 @@
  * EXTENSION INFORMATION
  *
  * OpenCart         1.5.6
- * LiqPay API       https://www.liqpay.com/ru/doc
+ * LiqPay API       https://www.liqpay.ua/documentation/ru
  *
  */
 
