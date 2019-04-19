@@ -18,14 +18,14 @@
  * EXTENSION INFORMATION
  *
  * OpenCart         1.5.6
- * LiqPay API       https://www.liqpay.com/ru/doc
+ * LiqPay API       https://www.liqpay.ua/documentation/ru
  *
  */
 
 /**
  * Payment method liqpay controller (admin)
  *
- * @author      Liqpay <support@liqpay.com>
+ * @author      Liqpay <support@liqpay.ua>
  */
 class ControllerPaymentLiqPay extends Controller
 {
@@ -141,7 +141,7 @@ class ControllerPaymentLiqPay extends Controller
 		} else {
 			$this->data['liqpay_action'] = $this->config->get('liqpay_action');
 			if (empty($this->data['liqpay_action'])) {
-				$this->data['liqpay_action'] = 'https://www.liqpay.com/api/checkout';
+				$this->data['liqpay_action'] = 'https://www.liqpay.ua/api/checkout';
 			}
 		}
 
