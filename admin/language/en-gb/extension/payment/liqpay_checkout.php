@@ -13,7 +13,7 @@ $_['text_liqpay']		 = '<img src="view/image/payment/liqpay.png" alt="LIQPAY" tit
 // Entry
 $_['entry_public_key']	 = 'Public Key';
 $_['entry_private_key']	 = 'Private Key';
-$_['entry_api']	         = 'https://www.liqpay.com/api/3/checkout';
+$_['entry_api']	         = 'https://www.liqpay.ua/api/3/checkout';
 $_['entry_action']	     = 'pay';
 $_['entry_type']		 = 'Type';
 $_['entry_total']		 = 'Total';
